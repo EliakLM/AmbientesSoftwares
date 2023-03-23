@@ -1,30 +1,9 @@
-const rl = require("rl").createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+function primeNumber(num) {
+    for (var divisor = 2; divisor < num; divisor++) 
+    if (num % divisor == 0) return false;
+    return true;
+}
 
-rl.question("Digite um numero para verificar se é primo ", (numero) => {
-    if (numero <= 0){
-        console.log("O número deve ser maior do que 0 ")
+var determinadoNumero = 7;
 
-    }
-    else{
-        let div = 0
-
-        for(let cont = 1;cont <= numero;cont ++){
-            if(numero % cont == 0){
-                div ++;
-            }
-        }            
-            if (div === 2){
-                console.log(Number(numero) + " é primo")
-
-            }
-            else{console.log(Number(numero) + " não é primo")}
-
-            }
-
-        
-             
-    rl.close()
-    })
+for (var i = 2; i < determinadoNumero+1; i++) if (primeNumber(i)) console.log(i);

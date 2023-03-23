@@ -1,5 +1,5 @@
 
-var input = require('fs').readFileSync('javascript/stdin', 'utf8');
+var input = require('fs').readFileSync('JavaScript/stdin', 'utf8');
 //ESTUDAR
 var sep = [' ', '\n'];
 var line = input.split(new RegExp(sep.join('|'), 'g'));

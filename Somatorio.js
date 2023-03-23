@@ -1,48 +1,9 @@
-const { parse } = require("path")
+var numbers = [1,2,3,44,11];
 
-const rl= require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+var sum = 0;
 
-var num = []
-
-const somar = (num) => {
-    const somar = num.reduceRight(function (valorFinal, penulvalor){
-        return Number(valorFinal) + Number(penulvalor)
-
-    })
-    console.log("O somatório total é " + somar)
+for(var i =0;i<numbers.length;i++){
+   sum+=numbers[i];
 }
 
-const perg = (quant) => {
-    rl.question(
-        "Digite o número " + (num.length + +1) + " de " + quant + " : ",
-        (nums) => {
-            num.push(nums)
-
-            if (quant <= num.length){
-                rl.close()
-                somar(num)
-            }else{
-                perg(quant)
-            }
-
-        }
-
-
-    )
-
-}
-
-rl.question("Digite quantos numeros deseja somar: ", (quant) => {
-    if (isNaN(quant)) {
-        console.log("DIgite um número inteiro acima de zero ")
-        rl.close()
-    }else{
-        perg(quant.trim())
-
-    }
-
-
-    })
+console.log(sum);
