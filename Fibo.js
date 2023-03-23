@@ -1,4 +1,4 @@
-const number = parseInt(prompt('Diga as qtds de termos: '));
+const number = 5;
 let n1 = 0, n2 = 1, nextTerm;
 
 console.log('Fibonacci:');

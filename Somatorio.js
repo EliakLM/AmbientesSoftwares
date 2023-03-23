@@ -1,4 +1,4 @@
-var numbers = [1,2,3,44,11];
+var numbers = [3,6,9,12];
 
 var sum = 0;
 

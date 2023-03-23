@@ -12,4 +12,4 @@ function MDC(a,b){
   }
   
   
-  console.log(MDC(40,60));
+  console.log(MDC(150,300));

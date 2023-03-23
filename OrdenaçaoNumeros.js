@@ -15,5 +15,5 @@ function QuickSort(Arr){
   
   }
   
-  const items = [10,65,99,84,74,20,65,44,88];
+  const items = [5,25,15,3,9,19,25];
   console.log(QuickSort(items));
