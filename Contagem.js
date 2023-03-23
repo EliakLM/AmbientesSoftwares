@@ -14,7 +14,7 @@ let i = 0;
 
 //while(i < n){
     valor = [2.5, 6, 1, 3.9, 4];
-for(let j=0; j<valor[j];j++){
+for(let j=0; j<valor.length;j++){
     if(valor[j] % 1 === 0 ){
         contadorInt = contadorInt + 1;
     }else{
