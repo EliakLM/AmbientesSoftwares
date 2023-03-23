@@ -1,28 +1,11 @@
-const rl = require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+const number = parseInt(prompt('Diga as qtds de termos: '));
+let n1 = 0, n2 = 1, nextTerm;
 
-const fibo = (numero) => {
-    if (numero < 2){
-        return numero
-    } else{
-        return fibo(numero - 1) + fibo(numero - 2)
-    }
+console.log('Fibonacci:');
+
+for (let i = 1; i <= number; i++) {
+    console.log(n1);
+    nextTerm = n1 + n2;
+    n1 = n2;
+    n2 = nextTerm;
 }
-rl.question("Digite um número ", (num) => {
-    if(num <= 0 || isNaN(num)){
-        console.log("Digite um número maior que 0 ")
-
-    }else {
-        for(let i = 0;i < num;i++){
-            rl.close()
-            console.log(fibo(i))
-
-
-        }
-
-    }
-    
-    
-})
