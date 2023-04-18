@@ -4,6 +4,6 @@ function primeNumber(num) {
     return true;
 }
 
-var determinadoNumero = 31;
+var determinadoNumero = 5;
 
 for (var i = 2; i < determinadoNumero+1; i++) if (primeNumber(i)) console.log(i);

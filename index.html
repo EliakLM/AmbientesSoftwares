@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Ambientes_De_Software_Web</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Operações Matemáticas</h1>
+      <button id="btn-contagem">Contagem</button>
+      <p id="result-contagem"></p>
+      <button id="btn-fibonacci">Fibonacci</button>
+      <p id="result-fibonacci"></p>
+      <button id="btn-mdc">MDC</button>
+      <p id="result-mdc"></p>
+      <button id="btn-numeroprimo">NúmeroPrimo</button>
+      <p id="result-numeroprimo"></p>
+      <button id="btn-ordenacao">OrdenaçãoNúmeros</button>
+      <p id="result-ordenacao"></p>
+      <button id="btn-somatorio">Somatório</button>
+      <p id="result-somatorio"></p>
+    </div>
+    <script>
+      const btnContagem = document.querySelector("#btn-contagem");
+
+      btnContagem.addEventListener("click", () => {
+        const limite = parseInt(prompt("Digite o limite da contagem:"));
+        const resultContagem = document.querySelector("#result-contagem");
+
+        let i = 0;
+        let resultado = "";
+        while (i <= limite) {
+          resultado += i + " ";
+          i++;
+        }
+
+        resultContagem.textContent = "Contagem: " + resultado;
+      });
+
+      const btnFibonacci = document.getElementById("btn-fibonacci");
+      const resultFibonacci = document.getElementById("result-fibonacci");
+      btnFibonacci.addEventListener("click", () => {
+        const n = parseInt(prompt("Digite um número inteiro positivo:"));
+
+        if (isNaN(n) || n < 0) {
+          resultFibonacci.textContent = "Entrada inválida.";
+        } else {
+          let fib1 = 0;
+          let fib2 = 1;
+          let result = "";
+          for (let i = 1; i <= n; i++) {
+            result += fib2 + " ";
+            let nextFib = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = nextFib;
+          }
+          resultFibonacci.textContent = "Série de Fibonacci: " + result;
+        }
+      });
+
+      const btnMdc = document.getElementById("btn-mdc");
+      const resultMdc = document.getElementById("result-mdc");
+      btnMdc.addEventListener("click", () => {
+        const num1 = parseInt(prompt("Digite o primeiro número:"));
+        const num2 = parseInt(prompt("Digite o segundo número:"));
+
+        if (isNaN(num1) || isNaN(num2)) {
+          resultMdc.textContent = "Entrada inválida.";
+        } else {
+          let a = num1;
+          let b = num2;
+          while (b !== 0) {
+            let temp = b;
+            b = a % b;
+            a = temp;
+          }
+          resultMdc.textContent = "MDC: " + a;
+        }
+      });
+
+      const btnNumeroprimo = document.getElementById("btn-numeroprimo");
+      const resultNumeroprimo = document.getElementById("result-numeroprimo");
+      btnNumeroprimo.addEventListener("click", () => {
+        const n = parseInt(prompt("Digite um número inteiro positivo:"));
+        if (isNaN(n) || n < 1) {
+          resultNumeroprimo.textContent = "Entrada inválida.";
+        } else if (n === 1) {
+          resultNumeroprimo.textContent = n + " não é primo.";
+        } else {
+          let i = 2;
+          while (i <= Math.sqrt(n)) {
+            if (n % i === 0) {
+              resultNumeroprimo.textContent = n + " não é primo.";
+              return;
+            }
+            i++;
+          }
+          resultNumeroprimo.textContent = n + " é primo.";
+        }
+      });
+
+      const btnOrdenacao = document.getElementById("btn-ordenacao");
+      const resultOrdenacao = document.getElementById("result-ordenacao");
+      btnOrdenacao.addEventListener("click", () => {
+        const numeros = prompt(
+          "Digite uma lista de números separados por espaço:"
+        );
+        const arr = numeros.split(" ").map((x) => parseInt(x));
+        if (arr.some((x) => isNaN(x))) {
+          resultOrdenacao.textContent = "Entrada inválida.";
+        } else {
+          arr.sort((a, b) => a - b);
+          resultOrdenacao.textContent =
+            "Números em ordem crescente: " + arr.join(" ");
+        }
+      });
+
+      const btnSomatorio = document.getElementById("btn-somatorio");
+      const resultSomatorio = document.getElementById("result-somatorio");
+      btnSomatorio.addEventListener("click", () => {
+        const numeros = prompt(
+          "Digite uma lista de números separados por espaço:"
+        );
+        const arr = numeros.split(" ").map((x) => parseInt(x));
+        if (arr.some((x) => isNaN(x))) {
+          resultSomatorio.textContent = "Entrada inválida.";
+        } else {
+          const soma = arr.reduce((acc, val) => acc + val, 0);
+          resultSomatorio.textContent = "Somatório: " + soma;
+        }
+      });
+    </script>
+  </body>
+</html>
